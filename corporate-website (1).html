@@ -1,0 +1,759 @@
+<html lang="zh-CN"><head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>大连国环节能环保技术有限责任公司 - 环保科技引领者</title>
+            <script src="https://cdn.tailwindcss.com"></script>
+            <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+            <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+            
+            <script>
+                tailwind.config = {
+                    theme: {
+                        extend: {
+                            colors: {
+                                primary: '#0052CC',
+                                secondary: '#36B37E',
+                                accent: '#FF5630',
+                                dark: '#172B4D',
+                                light: '#F4F5F7',
+                                muted: '#6B778C'
+                            },
+                            fontFamily: {
+                                inter: ['Inter', 'sans-serif'],
+                                notosans: ['Noto Sans SC', 'sans-serif']
+                            },
+                        }
+                    }
+                }
+            </script>
+            
+            <style type="text/tailwindcss">
+                @layer utilities {
+                    .content-auto {
+                        content-visibility: auto;
+                    }
+                    .text-shadow {
+                        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    }
+                    .text-shadow-lg {
+                        text-shadow: 0 4px 8px rgba(0,0,0,0.25);
+                    }
+                    .transition-custom {
+                        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                    }
+                    .hover-scale {
+                        transition: transform 0.3s ease;
+                    }
+                    .hover-scale:hover {
+                        transform: scale(1.03);
+                    }
+                    .section-padding {
+                        padding: clamp(3rem, 8vw, 6rem) 0;
+                    }
+                    .nav-scrolled {
+                        background-color: rgba(255, 255, 255, 0.95);
+                        backdrop-filter: blur(8px);
+                        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+                    }
+                    .animate-fade-in {
+                        animation: fadeIn 0.8s ease forwards;
+                    }
+                    .animate-slide-up {
+                        animation: slideUp 0.8s ease forwards;
+                    }
+                    @keyframes fadeIn {
+                        from { opacity: 0; }
+                        to { opacity: 1; }
+                    }
+                    @keyframes slideUp {
+                        from { 
+                            opacity: 0;
+                            transform: translateY(30px);
+                        }
+                        to { 
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+                }
+            </style>
+        </head>
+        <body class="font-notosans bg-white text-dark">
+            <!-- 导航栏 -->
+            <header id="navbar" class="fixed w-full top-0 left-0 z-50 transition-all duration-300 py-4">
+                <div class="container mx-auto px-4 md:px-8">
+                    <nav class="flex items-center justify-between">
+                        <a href="#" class="flex items-center space-x-2">
+                            <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                                <span class="text-white font-bold text-xl">国环</span>
+                            </div>
+                            <span class="text-dark font-bold text-xl">大连国环节能环保技术有限责任公司</span>
+                        </a>
+                        
+                        <!-- 桌面导航 -->
+                        <div class="hidden md:flex items-center space-x-8">
+                            <a href="#home" class="text-dark hover:text-primary transition-colors font-medium">首页</a>
+                            <a href="#services" class="text-dark hover:text-primary transition-colors font-medium">服务</a>
+                            <a href="#products" class="text-dark hover:text-primary transition-colors font-medium">产品</a>
+                            <a href="#about" class="text-dark hover:text-primary transition-colors font-medium">关于我们</a>
+                            <a href="#contact" class="text-dark hover:text-primary transition-colors font-medium">联系我们</a>
+                            <a href="#contact" class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-full transition-all hover:shadow-lg">咨询服务</a>
+                        </div>
+                        
+                        <!-- 移动端菜单按钮 -->
+                        <button id="menu-toggle" class="md:hidden text-dark focus:outline-none">
+                            <i class="fa fa-bars text-2xl"></i>
+                        </button>
+                    </nav>
+                    
+                    <!-- 移动端导航菜单 -->
+                    <div id="mobile-menu" class="md:hidden hidden mt-4 bg-white rounded-lg shadow-xl p-4 absolute left-4 right-4 animate-fade-in">
+                        <div class="flex flex-col space-y-4">
+                            <a href="#home" class="text-dark hover:text-primary transition-colors font-medium py-2 border-b border-gray-100">首页</a>
+                            <a href="#services" class="text-dark hover:text-primary transition-colors font-medium py-2 border-b border-gray-100">服务</a>
+                            <a href="#products" class="text-dark hover:text-primary transition-colors font-medium py-2 border-b border-gray-100">产品</a>
+                            <a href="#about" class="text-dark hover:text-primary transition-colors font-medium py-2 border-b border-gray-100">关于我们</a>
+                            <a href="#contact" class="text-dark hover:text-primary transition-colors font-medium py-2">联系我们</a>
+                            <a href="#contact" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full transition-all hover:shadow-lg text-center">咨询服务</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- 首页/英雄区域 -->
+            <section id="home" class="pt-28 md:pt-36 pb-16 md:pb-24 bg-gradient-to-b from-light to-white">
+                <div class="container mx-auto px-4 md:px-8">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 mb-10 md:mb-0 animate-slide-up" style="animation-delay: 0.2s">
+                            <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-dark mb-6">
+                                环保科技<br>
+                                <span class="text-primary">引领绿色未来</span>
+                            </h1>
+                            <p class="text-muted text-lg mb-8 max-w-xl">
+                                大连国环节能环保技术有限责任公司致力于为客户提供高质量的环保设备调试、机器人测试、软件服务和技术解决方案，推动行业可持续发展。
+                            </p>
+                            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                                <a href="#services" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full transition-all hover:shadow-lg text-center font-medium">
+                                    了解我们的服务
+                                </a>
+                                <a href="#contact" class="bg-transparent border-2 border-primary text-primary hover:bg-primary/5 px-8 py-3 rounded-full transition-all text-center font-medium">联系我们</a>
+                            </div>
+                            <div class="mt-10 flex items-center space-x-8">
+                                <div class="flex flex-col">
+                                    <span class="text-3xl font-bold text-primary">15+</span>
+                                    <span class="text-muted">年行业经验</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-3xl font-bold text-primary">200+</span>
+                                    <span class="text-muted">成功案例</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-3xl font-bold text-primary">98%</span>
+                                    <span class="text-muted">客户满意度</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 animate-slide-up" style="animation-delay: 0.5s">
+                            <img src="https://picsum.photos/id/1/600/400" alt="环保科技展示" class="rounded-xl shadow-2xl hover-scale w-full">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 服务部分 -->
+            <section id="services" class="section-padding bg-white">
+                <div class="container mx-auto px-4 md:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">我们的服务</h2>
+                        <p class="text-muted text-lg">提供全方位的环保科技解决方案，满足不同客户的需求</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <!-- 服务卡片1 -->
+                        <div class="bg-light rounded-2xl p-8 hover-scale hover:shadow-xl transition-custom">
+                            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                                <i class="fa fa-cogs text-primary text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">环保设备调试</h3>
+                            <p class="text-muted mb-6">提供专业的环保设备安装、调试和维护服务，确保设备高效运行，降低能源消耗。</p>
+                            <a href="services/equipment.html" class="text-primary font-medium inline-flex items-center">
+                                了解更多 <i class="fa fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                        
+                        <!-- 服务卡片2 -->
+                        <div class="bg-light rounded-2xl p-8 hover-scale hover:shadow-xl transition-custom">
+                            <div class="w-16 h-16 bg-secondary/10 rounded-xl flex items-center justify-center mb-6">
+                                <i class="fa fa-android text-secondary text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">机器人测试</h3>
+                            <p class="text-muted mb-6">先进的机器人性能测试和优化服务，确保机器人在环保应用中的可靠性和效率。</p>
+                            <a href="services/robotics.html" class="text-primary font-medium inline-flex items-center">
+                                了解更多 <i class="fa fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                        
+                        <!-- 服务卡片3 -->
+                        <div class="bg-light rounded-2xl p-8 hover-scale hover:shadow-xl transition-custom">
+                            <div class="w-16 h-16 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
+                                <i class="fa fa-code text-accent text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">软件服务</h3>
+                            <p class="text-muted mb-6">定制化的环保管理软件解决方案，包括数据分析、监控系统和智能管理平台。</p>
+                            <a href="services/software.html" class="text-primary font-medium inline-flex items-center">
+                                了解更多 <i class="fa fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                        
+                        <!-- 服务卡片4 -->
+                        <div class="bg-light rounded-2xl p-8 hover-scale hover:shadow-xl transition-custom">
+                            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                                <i class="fa fa-lightbulb-o text-primary text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">技术服务</h3>
+                            <p class="text-muted mb-6">专业的环保技术咨询和解决方案，帮助企业实现绿色转型和可持续发展。</p>
+                            <a href="services/technology.html" class="text-primary font-medium inline-flex items-center">
+                                了解更多 <i class="fa fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 产品展示 -->
+            <section id="products" class="section-padding bg-light">
+                <div class="container mx-auto px-4 md:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">我们的产品</h2>
+                        <p class="text-muted text-lg">创新环保产品，为可持续发展提供支持</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- 产品卡片1 -->
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-scale transition-custom">
+                            <div class="relative h-64 overflow-hidden">
+                                <img src="https://picsum.photos/id/10/600/400" alt="智能环境监测系统" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div class="absolute top-4 right-4 bg-primary text-white text-sm font-medium px-3 py-1 rounded-full">
+                                    畅销产品
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-2">智能环境监测系统</h3>
+                                <p class="text-muted mb-4">实时监测空气质量、水质和土壤污染，提供精准数据支持环保决策。</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-primary font-bold">¥38,500</span>
+                                    <a href="products/monitoring.html" class="bg-primary/10 text-primary px-4 py-2 rounded-lg transition-colors hover:bg-primary hover:text-white">
+                                        查看详情
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 产品卡片2 -->
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-scale transition-custom">
+                            <div class="relative h-64 overflow-hidden">
+                                <img src="https://picsum.photos/id/160/600/400" alt="高效污水处理设备" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-2">高效污水处理设备</h3>
+                                <p class="text-muted mb-4">采用先进技术处理工业和生活污水，达到国家环保排放标准。</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-primary font-bold">¥176,800</span>
+                                    <a href="products/wastewater.html" class="bg-primary/10 text-primary px-4 py-2 rounded-lg transition-colors hover:bg-primary hover:text-white">
+                                        查看详情
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 产品卡片3 -->
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover-scale transition-custom">
+                            <div class="relative h-64 overflow-hidden">
+                                <img src="https://picsum.photos/id/180/600/400" alt="智能垃圾分类机器人" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <div class="absolute top-4 right-4 bg-accent text-white text-sm font-medium px-3 py-1 rounded-full">
+                                    新品上市
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-2">智能机器人</h3>
+                                <p class="text-muted mb-4">AI驱动的巡检系统，提高巡检效率，降低人工成本。</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-primary font-bold">¥1,290,000</span>
+                                    <a href="products/robot.html" class="bg-primary/10 text-primary px-4 py-2 rounded-lg transition-colors hover:bg-primary hover:text-white">
+                                        查看详情
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-12">
+                        <a href="products/index.html" class="inline-flex items-center justify-center bg-transparent border-2 border-primary text-primary hover:bg-primary/5 px-8 py-3 rounded-full transition-all font-medium">
+                            查看全部产品 <i class="fa fa-long-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 关于我们 -->
+            <section id="about" class="section-padding bg-white">
+                <div class="container mx-auto px-4 md:px-8">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                            <img src="https://picsum.photos/id/116/600/400" alt="大连国环节能环保团队" class="rounded-2xl shadow-xl w-full">
+                        </div>
+                        <div class="md:w-1/2">
+                            <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-6">关于大连国环节能环保</h2>
+                            <p class="text-muted text-lg mb-6">
+                                大连国环节能环保技术有限责任公司成立于2010年，是一家专注于环保科技领域的高新技术企业。我们致力于为客户提供高质量的环保设备调试、机器人测试、软件服务和技术解决方案。
+                            </p>
+                            <p class="text-muted text-lg mb-8">
+                                公司拥有一支由环保工程师、软件开发者和机器人专家组成的专业团队，具备丰富的行业经验和技术实力。我们坚持创新驱动，不断研发新产品和新技术，为客户创造更大价值。
+                            </p>
+                            
+                            <div class="grid grid-cols-2 gap-6 mb-8">
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa fa-check text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-1">专业团队</h4>
+                                        <p class="text-muted text-sm">150+专业技术人员</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa fa-check text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-1">研发实力</h4>
+                                        <p class="text-muted text-sm">20+项技术专利</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa fa-check text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-1">服务网络</h4>
+                                        <p class="text-muted text-sm">覆盖全国主要城市</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa fa-check text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold mb-1">客户认可</h4>
+                                        <p class="text-muted text-sm">200+企业客户</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <a href="about/index.html" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full transition-all hover:shadow-lg inline-flex items-center font-medium">
+                                了解更多公司信息 <i class="fa fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 数据统计 -->
+            <section class="py-16 bg-primary">
+                <div class="container mx-auto px-4 md:px-8">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                        <div class="animate-fade-in" style="animation-delay: 0.2s">
+                            <div class="text-white text-4xl md:text-5xl font-bold mb-2">15+</div>
+                            <p class="text-white/80">年行业经验</p>
+                        </div>
+                        <div class="animate-fade-in" style="animation-delay: 0.4s">
+                            <div class="text-white text-4xl md:text-5xl font-bold mb-2">200+</div>
+                            <p class="text-white/80">成功案例</p>
+                        </div>
+                        <div class="animate-fade-in" style="animation-delay: 0.6s">
+                            <div class="text-white text-4xl md:text-5xl font-bold mb-2">150+</div>
+                            <p class="text-white/80">专业团队</p>
+                        </div>
+                        <div class="animate-fade-in" style="animation-delay: 0.8s">
+                            <div class="text-white text-4xl md:text-5xl font-bold mb-2">20+</div>
+                            <p class="text-white/80">技术专利</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 客户评价 -->
+            <section class="section-padding bg-light">
+                <div class="container mx-auto px-4 md:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">客户评价</h2>
+                        <p class="text-muted text-lg">听听我们客户的真实反馈</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- 评价卡片1 -->
+                        <div class="bg-white rounded-2xl p-8 shadow-lg hover-scale transition-custom">
+                            <div class="flex items-center mb-6">
+                                <img src="https://picsum.photos/id/1027/100/100" alt="客户头像" class="w-14 h-14 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-semibold">张经理</h4>
+                                    <p class="text-muted text-sm">某大型化工企业</p>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                            </div>
+                            <p class="text-muted">
+                                "大连国环的环保设备调试服务非常专业，他们的团队高效解决了我们设备运行中的问题，大大提高了生产效率，降低了环境风险。"
+                            </p>
+                        </div>
+                        
+                        <!-- 评价卡片2 -->
+                        <div class="bg-white rounded-2xl p-8 shadow-lg hover-scale transition-custom">
+                            <div class="flex items-center mb-6">
+                                <img src="https://picsum.photos/id/1062/100/100" alt="客户头像" class="w-14 h-14 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-semibold">李总监</h4>
+                                    <p class="text-muted text-sm">某环保科技公司</p>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star-half-o text-yellow-400"></i>
+                            </div>
+                            <p class="text-muted">
+                                "我们与大连国环合作开发的智能监测系统超出了预期，系统稳定性和数据准确性都非常出色，为我们的环保项目提供了有力支持。"
+                            </p>
+                        </div>
+                        
+                        <!-- 评价卡片3 -->
+                        <div class="bg-white rounded-2xl p-8 shadow-lg hover-scale transition-custom">
+                            <div class="flex items-center mb-6">
+                                <img src="https://picsum.photos/id/1074/100/100" alt="客户头像" class="w-14 h-14 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-semibold">王总</h4>
+                                    <p class="text-muted text-sm">某市政工程公司</p>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                            </div>
+                            <p class="text-muted">
+                                "大连国环的垃圾分类机器人帮助我们大幅提高了垃圾处理效率，减少了人工成本。他们的技术服务也非常到位，值得推荐！"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 联系我们 -->
+            <section id="contact" class="section-padding bg-white">
+                <div class="container mx-auto px-4 md:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">联系我们</h2>
+                        <p class="text-muted text-lg">如有任何问题或需求，请随时与我们联系</p>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                            <form id="contact-form" class="bg-light p-8 rounded-2xl shadow-lg">
+                                <div class="mb-6">
+                                    <label for="name" class="block text-dark font-medium mb-2">姓名</label>
+                                    <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" placeholder="请输入您的姓名" required="">
+                                </div>
+                                <div class="mb-6">
+                                    <label for="email" class="block text-dark font-medium mb-2">邮箱</label>
+                                    <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" placeholder="请输入您的邮箱" required="">
+                                </div>
+                                <div class="mb-6">
+                                    <label for="phone" class="block text-dark font-medium mb-2">电话</label>
+                                    <input type="tel" id="phone" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" placeholder="请输入您的电话" required="">
+                                </div>
+                                <div class="mb-6">
+                                    <label for="service" class="block text-dark font-medium mb-2">服务类型</label>
+                                    <select id="service" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" required="">
+                                        <option value="">请选择服务类型</option>
+                                        <option value="equipment">环保设备调试</option>
+                                        <option value="robotics">机器人测试</option>
+                                        <option value="software">软件服务</option>
+                                        <option value="technology">技术服务</option>
+                                    </select>
+                                </div>
+                                <div class="mb-6">
+                                    <label for="message" class="block text-dark font-medium mb-2">留言</label>
+                                    <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" placeholder="请输入您的留言内容" required=""></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg transition-all hover:shadow-lg font-medium">
+                                    提交留言
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <div class="md:w-1/2">
+                            <div class="bg-primary/5 p-8 rounded-2xl h-full">
+                                <h3 class="text-xl font-semibold mb-6">联系方式</h3>
+                                <div class="space-y-6">
+                                    <div class="flex items-start">
+                                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                            <i class="fa fa-map-marker text-primary text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium mb-1">公司地址</h4>
+                                            <p class="text-muted">辽宁省大连市黄山路金山园6号楼</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                            <i class="fa fa-phone text-primary text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium mb-1">联系电话</h4>
+                                            <p class="text-muted">18698666960</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                            <i class="fa fa-envelope text-primary text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium mb-1">电子邮箱</h4>
+                                            <p class="text-muted">329155604@qq.com</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                            <i class="fa fa-clock-o text-primary text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium mb-1">工作时间</h4>
+                                            <p class="text-muted">周一至周五: 9:00 - 18:00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-10">
+                                    <h3 class="text-xl font-semibold mb-6">关注我们</h3>
+                                    <div class="flex space-x-4">
+                                        <a href="#" class="w-12 h-12 bg-primary/10 hover:bg-primary/20 text-primary rounded-full flex items-center justify-center transition-colors">
+                                            <i class="fa fa-weixin text-xl"></i>
+                                        </a>
+                                        <a href="#" class="w-12 h-12 bg-primary/10 hover:bg-primary/20 text-primary rounded-full flex items-center justify-center transition-colors">
+                                            <i class="fa fa-weibo text-xl"></i>
+                                        </a>
+                                        <a href="#" class="w-12 h-12 bg-primary/10 hover:bg-primary/20 text-primary rounded-full flex items-center justify-center transition-colors">
+                                            <i class="fa fa-linkedin text-xl"></i>
+                                        </a>
+                                        <a href="#" class="w-12 h-12 bg-primary/10 hover:bg-primary/20 text-primary rounded-full flex items-center justify-center transition-colors">
+                                            <i class="fa fa-youtube-play text-xl"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 页脚 -->
+            <footer class="bg-dark text-white py-12">
+                <div class="container mx-auto px-4 md:px-8">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                        <div>
+                            <a href="#" class="flex items-center space-x-2 mb-6">
+                                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                                    <span class="text-white font-bold text-xl">国环</span>
+                                </div>
+                                <span class="text-white font-bold text-xl">大连国环节能环保技术有限责任公司</span>
+                            </a>
+                            <p class="text-gray-400 mb-6">
+                                致力于为客户提供高质量的环保设备调试、机器人测试、软件服务和技术解决方案。
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                    <i class="fa fa-weixin"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                    <i class="fa fa-weibo"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                    <i class="fa fa-youtube-play"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-semibold mb-6">快速链接</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                                <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">服务</a></li>
+                                <li><a href="#products" class="text-gray-400 hover:text-white transition-colors">产品</a></li>
+                                <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">关于我们</a></li>
+                                <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-semibold mb-6">服务项目</h4>
+                            <ul class="space-y-3">
+                                <li><a href="services/equipment.html" class="text-gray-400 hover:text-white transition-colors">环保设备调试</a></li>
+                                <li><a href="services/robotics.html" class="text-gray-400 hover:text-white transition-colors">机器人测试</a></li>
+                                <li><a href="services/software.html" class="text-gray-400 hover:text-white transition-colors">软件服务</a></li>
+                                <li><a href="services/technology.html" class="text-gray-400 hover:text-white transition-colors">技术服务</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-semibold mb-6">联系方式</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fa fa-map-marker text-primary mt-1 mr-3"></i>
+                                    <span class="text-gray-400">辽宁省大连市黄山路金山园6号楼</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-phone text-primary mt-1 mr-3"></i>
+                                    <span class="text-gray-400">18698666960</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-envelope text-primary mt-1 mr-3"></i>
+                                    <span class="text-gray-400">329155604@qq.com</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-8 border-t border-gray-800 text-center text-gray-500">
+                        <p>© 2025 大连国环节能环保技术有限责任公司. 保留所有权利.</p>
+                    </div>
+                </div>
+            </footer>
+
+            <script>
+                // 导航栏滚动效果
+                window.addEventListener('scroll', function() {
+                    const navbar = document.getElementById('navbar');
+                    if (window.scrollY > 50) {
+                        navbar.classList.add('nav-scrolled');
+                    } else {
+                        navbar.classList.remove('nav-scrolled');
+                    }
+                });
+                
+                // 移动端菜单切换
+                document.getElementById('menu-toggle').addEventListener('click', function() {
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    mobileMenu.classList.toggle('hidden');
+                });
+                
+                // 平滑滚动
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        
+                        // 关闭移动菜单
+                        document.getElementById('mobile-menu').classList.add('hidden');
+                        
+                        const targetId = this.getAttribute('href');
+                        if (targetId === '#') return;
+                        
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+                
+                // 滚动动画
+                const animateOnScroll = function() {
+                    const elements = document.querySelectorAll('.section-padding');
+                    
+                    elements.forEach(element => {
+                        const elementPosition = element.getBoundingClientRect().top;
+                        const windowHeight = window.innerHeight;
+                        
+                        if (elementPosition < windowHeight - 100) {
+                            element.classList.add('animate-fade-in');
+                        }
+                    });
+                };
+                
+                // 初始加载动画
+                window.addEventListener('load', animateOnScroll);
+                // 滚动时触发动画
+                window.addEventListener('scroll', animateOnScroll);
+                
+                // 表单提交处理
+                document.getElementById('contact-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // 获取表单数据
+                    const formData = {
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value,
+                        service: document.getElementById('service').value,
+                        message: document.getElementById('message').value
+                    };
+                    
+                    // 模拟表单提交
+                    console.log('表单提交数据:', formData);
+                    
+                    // 显示提交成功消息
+                    const form = this;
+                    form.innerHTML = `
+                        <div class="text-center py-8">
+                            <div class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i class="fa fa-check text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">提交成功</h3>
+                            <p class="text-muted mb-6">感谢您的留言，我们将尽快与您联系。</p>
+                            <button type="button" onclick="location.reload()" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full transition-all hover:shadow-lg">
+                                返回
+                            </button>
+                        </div>
+                    `;
+                    
+                    // 实际项目中，这里应该使用fetch API发送数据到服务器
+                    /*
+                    fetch('/submit-form', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // 处理成功响应
+                        console.log('提交成功:', data);
+                    })
+                    .catch(error => {
+                        // 处理错误
+                        console.error('提交失败:', error);
+                    });
+                    */
+                });
+            </script>
+        
+        
+    
+    </body></html>
